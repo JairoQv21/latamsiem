@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>LATAMSIEM</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Roboto",Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 80px;
+            background-color: #0b121f;
+        }
+        
+
+
+        .siem-advantages {
+            background: linear-gradient(135deg, #022229 0%, #0c7a8a 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantages-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .advantages-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .advantages-badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #03424b;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .advantages-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .advantages-title span {
+            color: #ffd700;
+        }
+
+        .advantages-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .advantage-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .advantage-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            position: relative;
+        }
+
+        .advantage-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .advantages-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffd700, #ffc000);
+            color: #03424b;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.6);
+        }
+
+        /* Efecto partículas */
+        .particle {
+            position: absolute;
+            background: rgba(255,215,0,0.6);
+            border-radius: 50%;
+            filter: blur(1px);
+            z-index: 1;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg) translateX(0); }
+            50% { transform: translateY(-100px) rotate(180deg) translateX(50px); }
+            100% { transform: translateY(0) rotate(360deg) translateX(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .advantages-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .advantage-card {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .advantages-title {
+                font-size: 2.2rem;
+            }
+            
+            .advantages-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .advantage-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+
+        /* Sección de SIEM */
+        
+        .siem-explainer {
+            background: #f8fbfc;
+            padding: 80px 0;
+        }
+
+        .explainer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .explainer-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .explainer-badge {
+            display: inline-block;
+            background: #1daab7;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .explainer-title {
+            font-size: 2.5rem;
+            color: #03424b;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .explainer-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .explainer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .explainer-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .acronym-card {
+            background: linear-gradient(135deg, #03424b 0%, #1daab7 100%);
+            color: white;
+            font-size: 1.4rem;
+        }
+
+        .acronym-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .features-card h3 {
+            font-size: 1.5rem;
+            color: #03424b;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1daab7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: #1daab7;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .explainer-image {
+            position: relative;
+            grid-column: span 2;
+            margin-top: 40px;
+        }
+
+        .explainer-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            background: #ffd700;
+            color: #03424b;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .explainer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .explainer-image {
+                grid-column: span 1;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .explainer-title {
+                font-size: 2rem;
+            }
+            
+            .explainer-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .explainer-card {
+                padding: 30px;
+            }
+        }
+        .key-features {
+    background-color: #ffffff;
+    padding: 100px 0;
+    position: relative;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features-subtitle {
+    display: inline-block;
+    color: #1daab7;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.features-title {
+    font-size: 2.5rem;
+    color: #03424b;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    font-weight: 800;
+}
+
+.features-description {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 35px 30px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #eaeaea;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(13, 170, 183, 0.1);
+    border-color: rgba(13, 170, 183, 0.3);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(13, 170, 183, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    color: #03424b;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.feature-tag {
+    display: inline-block;
+    background: #f0f9fa;
+    color: #1daab7;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .features-title {
+        font-size: 2rem;
+    }
+    
+    .features-description {
+        font-size: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.navbar {
+    background: linear-gradient(90deg, 
+  rgba(12, 122, 138, 0.4) 0%, 
+  rgba(18, 176, 200, 0.4) 30%, 
+  rgba(2, 34, 41, 0.7) 100%);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    padding: 0 20px;
+    z-index: 1000;;
+}
+
+.logo-container {
+    
+    padding: 6px;
+    border-radius: 8px;
+    display: inline-block;
+}
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+/* Menú principal para desktop */
+.nav-main {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.nav-links li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #1ca9b6
+}
+
+/* Rayita inferior */
+.nav-links > li:hover > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #1ca9b6;
+    animation: borderGrow 0.3s ease-out;
+}
+
+@keyframes borderGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* Botón Contáctenos */
+.contact-btn {
+    background-color: #1daab7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-btn:hover {
+    background-color: #03424b;
+}
+
+/* Mega Menu */
+.mega-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #2c3a54f7;
+    padding: 30px calc((100% - 1200px)/2);
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100vw;
+    max-width: 100%;
+    border-top: 2px solid #1daab7;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+
+.nav-links li:hover .mega-menu {
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.1s;
+}
+
+.mega-menu h3 {
+    color: #e0e0e0;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mega-menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.mega-menu ul li {
+    margin-bottom: 10px;
+}
+
+.mega-menu ul li a {
+    color: #ebebeb;
+    font-size: 14px;
+    padding: 6px 0;
+    display: inline-block;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.mega-menu ul li a:hover {
+    color: #1daab7;
+    padding-left: 5px;
+}
+
+/* Menú Hamburguesa mejorado */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    right: 20px;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #1daab7;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Animación cuando está activo */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Menú Mobile estilo cortina */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: right 0.4s ease-in-out;
+    padding-top: 80px;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 18px 25px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.mobile-menu a:hover {
+    background: #f9f9f9;
+    color: #1daab7;
+    padding-left: 30px;
+}
+
+.mobile-submenu {
+    display: none;
+    background: #f7f7f7;
+}
+
+.mobile-submenu.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.mobile-submenu a {
+    padding-left: 40px !important;
+}
+
+.mobile-menu-toggle {
+    position: relative;
+}
+
+.mobile-menu-toggle::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.mobile-menu-toggle.active::after {
+    content: '-';
+}
+
+/* Overlay cuando el menú está abierto */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Botón en mobile */
+.mobile-contact-btn {
+    margin: 20px;
+    background-color: #1daab7;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    width: calc(100% - 40px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .nav-main {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+}
+.contact-footer {
+    background: linear-gradient(135deg, #022229 0%, #0c7a8a 100%);;
+    color: #fff;
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(255,215,0,0.2);
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+.contact-title {
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #1daab7, transparent);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+}
+
+.contact-method:hover {
+    transform: translateY(-3px);
+}
+
+.contact-method svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contact-form form {
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: white;
+}
+
+
+.contact-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: #1daab7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+
+.contact-form button:hover {
+    background: #ffd700;
+    color: #0b121f;
+}
+
+.contact-form button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.copyright-line {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contact-title {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="LATAM_logo.png" alt="Logo" class="logo-img">
+            </div>
+            
+            
+            <!-- Menú Hamburguesa -->
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+            <!-- Menú Desktop -->
+            <div class="nav-main">
+                <ul class="nav-links">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <!--<li>
+                        <a href="#">Productos</a>
+                        <div class="mega-menu">
+                           
+                            <div>
+                                <h3>Electrónica</h3>
+                                <ul>
+                                    <li><a href="#">Smartphones</a></li>
+                                    <li><a href="#">Laptops</a></li>
+                                    <li><a href="#">Tablets</a></li>
+                                    <li><a href="#">Accesorios</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Hogar</h3>
+                                <ul>
+                                    <li><a href="#">Muebles</a></li>
+                                    <li><a href="#">Electrodomésticos</a></li>
+                                    <li><a href="#">Decoración</a></li>
+                                    <li><a href="#">Cocina</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Moda</h3>
+                                <ul>
+                                    <li><a href="#">Ropa Hombre</a></li>
+                                    <li><a href="#">Ropa Mujer</a></li>
+                                    <li><a href="#">Calzado</a></li>
+                                    <li><a href="#">Accesorios</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Ofertas</h3>
+                                <ul>
+                                    <li><a href="#">Ofertas del día</a></li>
+                                    <li><a href="#">Nuevos lanzamientos</a></li>
+                                    <li><a href="#">Más vendidos</a></li>
+                                    <li><a href="#">Outlet</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Servicios</a>
+                        <div class="mega-menu">
+                            <div>
+                                <h3>Servicios Técnicos</h3>
+                                <ul>
+                                    <li><a href="#">Reparación</a></li>
+                                    <li><a href="#">Mantenimiento</a></li>
+                                    <li><a href="#">Soporte</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Consultoría</h3>
+                                <ul>
+                                    <li><a href="#">IT</a></li>
+                                    <li><a href="#">Negocios</a></li>
+                                    <li><a href="#">Legal</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Capacitación</h3>
+                                <ul>
+                                    <li><a href="#">Cursos</a></li>
+                                    <li><a href="#">Talleres</a></li>
+                                    <li><a href="#">Certificaciones</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Desarrollo</h3>
+                                <ul>
+                                    <li><a href="#">Aplicaciones</a></li>
+                                    <li><a href="#">Sistemas web</a></li>
+                                    <li><a href="#">Software</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>-->
+                    <li>
+                        <a href="#">Nosotros</a>
+                    </li>
+                </ul>
+                
+                <button class="contact-btn">Contáctenos</button>
+            </div>
+            <div class="menu-overlay" id="menuOverlay"></div>
+            <ul class="mobile-menu" id="mobileMenu">
+                <li><a href="#">Inicio</a></li>
+                <!--<li>
+                    <a href="#" class="mobile-menu-toggle">Productos</a>
+                    <ul class="mobile-submenu">
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Tablets</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="mobile-menu-toggle">Servicios</a>
+                    <ul class="mobile-submenu">
+                        <li><a href="#">Reparación</a></li>
+                        <li><a href="#">Mantenimiento</a></li>
+                        <li><a href="#">Soporte</a></li>
+                    </ul>
+                </li>-->
+                <li><a href="#">Nosotros</a></li>
+                <button class="mobile-contact-btn">Contáctenos</button>
+            </ul>
+        </div>
+        </div>
+        
+        <!-- Menú Mobile -->
+        <ul class="mobile-menu" id="mobileMenu">
+            <li><a href="#">Inicio</a></li>
+            <!--<li>
+                <a href="#" class="mobile-menu-toggle">Productos</a>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="mobile-menu-toggle">Servicios</a>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Reparación</a></li>
+                    <li><a href="#">Mantenimiento</a></li>
+                    <li><a href="#">Soporte</a></li>
+                </ul>
+            </li>-->
+            <li><a href="#">Nosotros</a></li>
+            <li><button class="contact-btn" style="width: 100%; border-radius: 0; text-align: left; padding: 15px 20px;">Contáctenos</button></li>
+        </ul>
+    </nav>
+    <section class="hero-section">
+        <video autoplay muted loop class="hero-video-bg">
+            <source src="latamsiem.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">LATAMSIEM: Tu Aliado en la Seguridad Digital</h1>
+            <p class="hero-description">
+                Detecta amenazas, genera alertas y protege lo que más importa. Un sistema inteligente de monitoreo y auditoría que te ayuda a anticiparte a riesgos, simplifica tus reportes y mejora el control sobre tu infraestructura.
+            </p>
+            <a href="#" class="hero-btn">Escríbenos</a>
+        </div>
+    </section>
+
+     <!-- Sección Educativa: ¿Qué es un SIEM? -->
+    <section class="siem-explainer">
+        <div class="explainer-container">
+            <div class="explainer-header">
+                <div class="explainer-badge">Tecnología SIEM</div>
+                <h2 class="explainer-title">¿Qué es un Sistema SIEM y cómo protege su organización?</h2>
+                <p class="explainer-subtitle">
+                    Descubra la solución integral que está transformando la ciberseguridad empresarial
+                </p>
+            </div>
+            
+            <div class="explainer-grid">
+                <!-- Tarjeta de acrónimo -->
+                <div class="explainer-card acronym-card">
+                    <h3>SIEM</h3>
+                    <p><strong>Security Information and Event Management</strong> (Gestión de Eventos e Información de Seguridad) es una solución tecnológica que centraliza y analiza datos de seguridad de toda su infraestructura.</p>
+                    <p>Cuando herramientas individuales no detectan amenazas complejas, el SIEM correlaciona información de múltiples fuentes para identificar patrones de ataque.</p>
+                </div>
+                
+                <!-- Tarjeta de características -->
+                <div class="explainer-card features-card">
+                    <h3>Capacidades Clave</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="feature-text">
+                                Detección de actividades sospechosas mediante análisis avanzado
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="feature-text">
+                                Alertas automáticas basadas en reglas personalizables
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="feature-text">
+                                Generación de informes para cumplimiento normativo
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="feature-text">
+                                Visión unificada de toda la infraestructura de red
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="feature-text">
+                                Control de acceso y detección de credenciales comprometidas
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <div class="feature-text">
+                                Reducción de falsas alarmas mediante correlación inteligente
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Sección de Ventajas del SIEM -->
+    <section class="siem-advantages">
+        <!-- Efecto partículas (se añade con JS) -->
+        
+        <div class="advantages-container">
+            <div class="advantages-header">
+                <div class="advantages-badge">Tecnología Exclusiva</div>
+                <h2 class="advantages-title">Ventajas Clave de <span>LatamSIEM</span></h2>
+                <p class="advantages-subtitle">
+                    La solución más completa del mercado con capacidades únicas para proteger su organización
+                </p>
+            </div>
+            
+            <div class="advantages-grid">
+                <!-- Ventaja 1 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">1</div>
+                    <h3><i class="fas fa-database"></i> Datos Originales</h3>
+                    <p>Guardado de eventos RAW originales sin modificación para análisis forense completo y sin pérdida de información.</p>
+                </div>
+                
+                <!-- Ventaja 2 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">2</div>
+                    <h3><i class="fas fa-code"></i> Plataforma No-Code</h3>
+                    <p>Configuración visual sin necesidad de programación. Implemente reglas complejas con interfaz intuitiva.</p>
+                </div>
+                
+                <!-- Ventaja 3 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">3</div>
+                    <h3><i class="fas fa-shield-virus"></i> Normalización Inteligente</h3>
+                    <p>Transformación automática de incidentes diversos en eventos unificados para análisis consistente.</p>
+                </div>
+                
+                <!-- Ventaja 4 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">4</div>
+                    <h3><i class="fas fa-project-diagram"></i> Correlación Avanzada</h3>
+                    <p>Análisis histórico y en tiempo real para detectar patrones de ataque complejos que pasan desapercibidos.</p>
+                </div>
+                
+                
+                <!-- Ventaja 7 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">5</div>
+                    <h3><i class="fas fa-tachometer-alt"></i> Alto Rendimiento</h3>
+                    <p>Procesamiento de hasta 90,000 eventos por segundo por nodo con latencia mínima.</p>
+                </div>
+                
+                <!-- Ventaja 8 -->
+                <div class="advantage-card">
+                    <div class="advantage-number">6</div>
+                    <h3><i class="fas fa-expand"></i> Escalabilidad Flexible</h3>
+                    <p>Expansión vertical y horizontal ligera para adaptarse a sus necesidades cambiantes.</p>
+                </div>
+                
+            </div>
+            
+            <div class="advantages-cta">
+                <a href="#" class="cta-button">Solicitar Demo Personalizada</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="key-features">
+    <div class="features-container">
+        <div class="features-header">
+            <span class="features-subtitle">Potencia tu Seguridad</span>
+            <h2 class="features-title">Capacidades Centrales del Sistema</h2>
+            <p class="features-description">Nuestra solución integra las funcionalidades más avanzadas para una protección integral de tu infraestructura digital.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/>
+                    </svg>
+                </div>
+                <h3>Detección Inteligente</h3>
+                <p>Identificación proactiva de síntomas y anomalías que indican posibles brechas de seguridad antes que escalen.</p>
+                <span class="feature-tag">Síntomas</span>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M17 7h-4v2h4c1.65 0 3 1.35 3 3s-1.35 3-3 3h-4v2h4c2.76 0 5-2.24 5-5s-2.24-5-5-5zm-6 8H7c-1.65 0-3-1.35-3-3s1.35-3-3-3v-2h4v2H7c-1.65 0-3 1.35-3 3s1.35 3 3 3h4v2z"/>
+                    </svg>
+                </div>
+                <h3>Análisis Contextual</h3>
+                <p>Correlación avanzada de eventos para descubrir patrones de ataque ocultos entre millones de registros.</p>
+                <span class="feature-tag">Correlación</span>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                </div>
+                <h3>Respuesta Automatizada</h3>
+                <p>Flujos de trabajo integrados para gestión de incidentes con playbooks accionables y escalamiento inteligente.</p>
+                <span class="feature-tag">Gestión de incidentes</span>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                    </svg>
+                </div>
+                <h3>Retención Garantizada</h3>
+                <p>Almacenamiento seguro a largo plazo de eventos para cumplimiento regulatorio y análisis forense histórico.</p>
+                <span class="feature-tag">Almacenamiento</span>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                </div>
+                <h3>Business Intelligence</h3>
+                <p>Informes ejecutivos y dashboards interactivos que transforman datos en inteligencia accionable.</p>
+                <span class="feature-tag">Informes</span>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
+                    </svg>
+                </div>
+                <h3>Integración Total</h3>
+                <p>Recolección y normalización de datos desde cualquier fuente para un panorama de seguridad unificado.</p>
+                <span class="feature-tag">Recolección de datos</span>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/>
+                    </svg>
+                </div>
+                <h3>Postura de Seguridad</h3>
+                <p>Identificación y gestión proactiva de vulnerabilidades para reducir superficies de ataque.</p>
+                <span class="feature-tag">Gestión de vulnerabilidades</span>
+            </div>
+
+            <!-- Feature 8 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1daab7">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                <h3>Control de Accesos</h3>
+                <p>Rastreo detallado de autenticaciones para detectar compromisos de credenciales y accesos sospechosos.</p>
+                <span class="feature-tag">Autenticación</span>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="contact-footer">
+    <div class="footer-container">
+        <!-- Sección de Contacto Simplificada -->
+        <div class="contact-section">
+            <h3 class="contact-title">Contáctanos</h3>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffd700">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span>contacto@latamsiem.com</span>
+                </div>
+                
+                <div class="contact-method">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffd700">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                    <span>+51 999 888 777 (24/7)</span>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h4>¿Consultas técnicas? Escríbenos</h4>
+                <form>
+                    <input type="email" placeholder="Tu correo" required>
+                    <textarea placeholder="Mensaje"></textarea>
+                    <button type="submit">
+                        Enviar <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Línea simple de copyright -->
+    <div class="copyright-line">
+        &copy; 2025 LATAMSIEM - Todos los derechos reservados.
+    </div>
+</footer>
+    <script>
+        // Toggle del menú mobile
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const mobileToggles = document.querySelectorAll('.mobile-menu-toggle');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+});
+
+menuOverlay.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+});
+
+mobileToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggle.classList.toggle('active');
+        const submenu = toggle.nextElementSibling;
+        submenu.classList.toggle('active');
+    });
+});
+
+// Cerrar menú al hacer clic en un enlace
+const mobileLinks = document.querySelectorAll('.mobile-menu a:not(.mobile-menu-toggle)');
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    });
+});
+
+
+
+         // Efecto de partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            const section = document.querySelector('.siem-advantages');
+            const particlesCount = window.innerWidth > 768 ? 20 : 10;
+            
+            for (let i = 0; i < particlesCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio entre 3px y 8px
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.6 + 0.2;
+                
+                // Retraso de animación aleatorio
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                
+                section.appendChild(particle);
+            }
+        });
+    </script>
+
+
+</body>
+</html>
